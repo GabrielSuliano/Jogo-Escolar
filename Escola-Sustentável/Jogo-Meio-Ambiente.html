@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crie sua Escola Sustentável</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- TELA DE INÍCIO -->
+        <div id="telaInicio" class="tela ativa">
+            <div class="conteudo-principal">
+                <div class="header-inicio">
+                    <h1>🌍 Crie sua Escola Sustentável 🌱</h1>
+                    <p class="descricao-intro">Você é o arquiteto da mudança! Faça escolhas inteligentes para transformar sua escola em um paraíso sustentável!</p>
+                </div>
+                
+                <div class="secao-formulario">
+                    <div class="campo-entrada">
+                        <label for="inputNome">👤 Qual é o seu nome?</label>
+                        <input type="text" id="inputNome" placeholder="Digite seu nome aqui">
+                    </div>
+
+                    <div class="campo-entrada">
+                        <label for="inputTurma">🏫 Qual é a sua turma?</label>
+                        <select id="inputTurma">
+                            <option value="">Escolha sua série</option>
+                            <option value="1º Ano">1º Ano</option>
+                            <option value="2º Ano">2º Ano</option>
+                            <option value="3º Ano">3º Ano</option>
+                            <option value="4º Ano">4º Ano</option>
+                            <option value="5º Ano">5º Ano</option>
+                            <option value="6º Ano">6º Ano</option>
+                            <option value="7º Ano">7º Ano</option>
+                            <option value="8º Ano">8º Ano</option>
+                        </select>
+                    </div>
+
+                    <button class="botao botao-grande" onclick="iniciarJogo()">⚡ Começar Missão ⚡</button>
+                </div>
+
+                <div class="secoes-botoes">
+                    <button class="botao botao-secundario" onclick="mostrarRanking()">🏆 Ver Ranking 🏆</button>
+                    <button class="botao botao-secundario" onclick="mostrarInstrucoes()">📖 Como Jogar 📖</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- TELA DE INSTRUÇÕES -->
+        <div id="telaInstruções" class="tela">
+            <div class="conteudo-principal">
+                <h2>📖 Como Jogar</h2>
+                <div class="instrucoes-container">
+                    <div class="instrucao-item">
+                        <h3>🎯 Seu Objetivo</h3>
+                        <p>Fazer 7 escolhas incríveis para transformar sua escola em um lugar 100% sustentável!</p>
+                    </div>
+                    <div class="instrucao-item">
+                        <h3>⭐ Sistema de Pontos</h3>
+                        <p>Os pontos de cada carta sao secretos durante o jogo. No fim, voce descobre seu desempenho total!</p>
+                    </div>
+                    <div class="instrucao-item">
+                        <h3>⏱️ Desafio de Tempo</h3>
+                        <p>Cada rodada tem cronometro. Se o tempo acabar, a rodada vale 0 ponto. Pense rapido!</p>
+                    </div>
+                    <div class="instrucao-item">
+                        <h3>🎨 Preview da Escola</h3>
+                        <p>Veja em tempo real como sua escola está ficando conforme você faz suas escolhas!</p>
+                    </div>
+                    <div class="instrucao-item">
+                        <h3>🏅 Ganhe Badges</h3>
+                        <p>Complete desafios especiais e ganhe badges para mostrar suas conquistas!</p>
+                    </div>
+                </div>
+                <button class="botao botao-grande" onclick="voltarParaInicio()">🏠 Voltar 🏠</button>
+            </div>
+        </div>
+
+        <!-- TELA DO JOGO (COM PREVIEW) -->
+        <div id="telaJogo" class="tela">
+            <div class="layout-jogo">
+                <!-- PREVIEW DA ESCOLA À ESQUERDA -->
+                <div class="painel-preview">
+                    <h3>Sua Escola</h3>
+                    <div class="preview-escola">
+                        <div class="elemento-escola predio">🏫</div>
+                        <div class="elemento-escola" id="icone-energia">⚡</div>
+                        <div class="elemento-escola" id="icone-agua">💧</div>
+                        <div class="elemento-escola" id="icone-reciclagem">🗑️</div>
+                        <div class="elemento-escola" id="icone-verde">🌱</div>
+                        <div class="elemento-escola" id="icone-transporte">🚌</div>
+                        <div class="elemento-escola" id="icone-comida">🥗</div>
+                        <div class="elemento-escola" id="icone-consciencia">📢</div>
+                    </div>
+                    <div class="pontuacao-preview">
+                        <p>Pontos: <strong id="pontuacaoAtual">0</strong></p>
+                        <div class="barra-progresso-vertical">
+                            <div class="progresso-vertical" id="barraVertical"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONTEÚDO DO JOGO À DIREITA -->
+                <div class="painel-conteudo">
+                    <div class="hud-jogo">
+                        <div class="hud-item">
+                            <span class="hud-label">Tempo</span>
+                            <strong id="tempoRestante">15s</strong>
+                        </div>
+                        <div class="hud-item hud-missao">
+                            <span class="hud-label">Missao Relampago</span>
+                            <p id="textoMissao">Escolha com calma e estrategia!</p>
+                        </div>
+                    </div>
+
+                    <div class="barra-tempo">
+                        <div class="progresso-tempo" id="barraTempo"></div>
+                    </div>
+
+                    <div class="info-categoria">
+                        <h2 id="tituloCategoria"></h2>
+                        <p class="numero-categoria" id="numCategoria"></p>
+                    </div>
+
+                    <p class="pergunta" id="textoPergunta"></p>
+                    
+                    <div class="opcoes" id="containerOpcoes"></div>
+
+                    <div class="barra-progresso-horizontal">
+                        <div class="progresso-horizontal" id="barraHorizontal"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TELA DE RESULTADO FINAL -->
+        <div id="telaResultado" class="tela">
+            <div class="conteudo-principal">
+                <div class="resultado-container">
+                    <div class="icone-resultado-grande" id="iconeResultado">🌟</div>
+                    <h2 id="mensagemPrincipal"></h2>
+                    
+                    <div class="cards-resultado">
+                        <div class="card-resultado">
+                            <div class="numero-grande" id="pontosFinal">0</div>
+                            <p>Pontos Totais</p>
+                        </div>
+                        <div class="card-resultado">
+                            <div class="numero-grande" id="percentualFinal">0</div>
+                            <p>Sustentabilidade</p>
+                        </div>
+                    </div>
+
+                    <p id="mensagemResultado" class="mensagem-resultado"></p>
+                    <div id="dicasResultado" class="dicas-resultado"></div>
+                    <div id="badgesResultado" class="badges-resultado"></div>
+                    
+                    <button class="botao botao-grande" onclick="irParaFormulario()">📝 Completar Formulário 📝</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- TELA DE FORMULÁRIO FINAL -->
+        <div id="telaFormulario" class="tela">
+            <div class="conteudo-principal">
+                <h2>🎓 Reflexão Final</h2>
+                <p class="descricao">Responda as 3 perguntas para completar sua jornada:</p>
+
+                <div class="formulario-final">
+                    <div class="pergunta-formulario">
+                        <label for="pergunta1">1️⃣ Qual foi a ação mais sustentável que você escolheu?</label>
+                        <select id="pergunta1">
+                            <option value="">Selecione uma opção</option>
+                            <option value="coleta-seletiva">♻️ Coleta Seletiva de Lixo</option>
+                            <option value="energia-solar">☀️ Energia Solar</option>
+                            <option value="campanhas">🎤 Campanhas Educativas</option>
+                            <option value="agua">💧 Economia de Água</option>
+                            <option value="transportes">🚌 Transportes Alternativos</option>
+                            <option value="horta">🥕 Horta Comunitária</option>
+                            <option value="biodiversidade">🦋 Proteção da Biodiversidade</option>
+                        </select>
+                    </div>
+
+                    <div class="pergunta-formulario">
+                        <label for="pergunta2">2️⃣ O que você aprendeu sobre sustentabilidade?</label>
+                        <textarea id="pergunta2" placeholder="Escreva aqui tudo o que você aprendeu..."></textarea>
+                    </div>
+
+                    <div class="pergunta-formulario">
+                        <label for="pergunta3">3️⃣ Como você vai levar essas aprendizagens para o mundo real?</label>
+                        <textarea id="pergunta3" placeholder="Compartilhe suas ideias e planos..."></textarea>
+                    </div>
+
+                    <button class="botao botao-grande" onclick="finalizarJogo()">🎉 Finalizar Jogo 🎉</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- TELA DE CONCLUSÃO -->
+        <div id="telaConclusao" class="tela">
+            <div class="conteudo-principal">
+                <div class="conclusao-container">
+                    <h2>🎉 Você é um Herói do Planeta! 🎉</h2>
+                    <p class="mensagem-conclusao">Parabéns por completar sua missão sustentável!</p>
+                    <p class="mensagem-conclusao">Você foi adicionado ao Hall da Fama dos Guardiões da Terra! 🌍</p>
+                    <div class="medal-final">🏆</div>
+                    <button class="botao botao-grande" onclick="voltarParaInicio()">🔄 Jogar Novamente 🔄</button>
+                    <button class="botao botao-secundario" onclick="mostrarRanking()">🏅 Ver Ranking 🏅</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- TELA DE RANKING -->
+        <div id="telaRanking" class="tela">
+            <div class="conteudo-principal">
+                <h2>🏆 Hall da Fama 🏆</h2>
+                <p class="descricao">Os Guardiões da Terra com melhor desempenho:</p>
+                
+                <div id="listaRanking" class="lista-ranking">
+                    <p class="vazio">Nenhum herói ainda. Seja o primeiro! 🚀</p>
+                </div>
+
+                <button class="botao botao-grande" onclick="voltarParaInicio()">🏠 Voltar ao Início 🏠</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

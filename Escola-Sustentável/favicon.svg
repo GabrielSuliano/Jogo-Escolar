@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Fundo circular -->
+  <circle cx="96" cy="96" r="96" fill="url(#grad1)"/>
+  
+  <!-- Edifício da escola -->
+  <rect x="50" y="70" width="92" height="80" fill="white" rx="8"/>
+  
+  <!-- Telhado da escola -->
+  <polygon points="50,70 96,30 142,70" fill="#fbbf24"/>
+  
+  <!-- Porta -->
+  <rect x="88" y="110" width="16" height="30" fill="#78350f"/>
+  
+  <!-- Maçaneta -->
+  <circle cx="101" cy="125" r="2" fill="#fbbf24"/>
+  
+  <!-- Janelas (3x2) -->
+  <rect x="58" y="78" width="12" height="12" fill="#87ceeb"/>
+  <rect x="76" y="78" width="12" height="12" fill="#87ceeb"/>
+  <rect x="114" y="78" width="12" height="12" fill="#87ceeb"/>
+  
+  <rect x="58" y="100" width="12" height="12" fill="#87ceeb"/>
+  <rect x="76" y="100" width="12" height="12" fill="#87ceeb"/>
+  <rect x="114" y="100" width="12" height="12" fill="#87ceeb"/>
+  
+  <!-- Planta/folha no topo (sustentabilidade) -->
+  <path d="M 96 20 Q 100 10 105 15 Q 100 5 96 15 Q 92 5 91 15 Q 96 10 96 20" fill="#10b981"/>
+  
+  <!-- Estrela de sustentabilidade -->
+  <circle cx="50" cy="50" r="8" fill="#34d399" opacity="0.8"/>
+  <circle cx="142" cy="50" r="8" fill="#34d399" opacity="0.8"/>
+</svg>
