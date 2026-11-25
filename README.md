@@ -48,3 +48,13 @@ Tambem e possivel usar uma extensao como Live Server no VS Code.
 ## Status
 
 Projeto front-end concluido para atividade escolar, sem necessidade de backend.
+
+## Fluxo e persistência
+
+`Escola-Sustentável/script.js` controla rodadas, opções, temporizador, pontuação e resultado; `style.css` apresenta a estrutura de `Jogo-Meio-Ambiente.html`. O ranking fica no navegador: não há servidor, conta ou ranking global; o visitante pode alterar os dados locais.
+
+Não há dependências npm, build, `.env`, banco ou migrations. Outra opção para executar é servir `Escola-Sustentável` com servidor estático local.
+
+## Testes e evolução
+
+Não há suíte automatizada ou deploy confirmado. Foram inspecionados código/regras, sem atribuir testes funcionais à revisão. Prioridades: pontuação/temporizador, teclado e reinício de partida. Não há licença versionada. Demonstra lógica de interface/educação ambiental, sem backend.
